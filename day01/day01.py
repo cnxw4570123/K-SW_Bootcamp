@@ -1,21 +1,13 @@
-# for countdown in 5, 4, 3, 2, 1, 'count!':
-#     print(countdown)
-
-# 파이썬은 스네이크 표기법 사용 -> countdown_list
-countdown_list = [5, 4, 3, 2, 1, 'hey']
-for countdown in countdown_list:
-    print(countdown)
-
-print(countdown_list[3])
-print('프로그램 종료')
-
-# [] -> 인덱싱을 한다
-
-quotes = {
-    "Moe": "A wise guy, huh?", # key와 value로 나뉨
-    "Larry": "Ow!",
-    "Curly": "Nyuk nyuk!"
+# 교재 딕셔너리 예제
+subjects = {
+    '의사소통영어': 'A+',
+    '오래된 미래' : 'B+',
+    '양자역학' : ' A',
 }
-stooge = "Curly"
-print(stooge, "says:", quotes[stooge])
+subject = '오래된 미래'
+student = '정균민'
+print(student, ' 학생의', subject,' 과목성적은 ', subjects[subject],'입니다')
+print('%s 학생의 %s 과목성적은 %s입니다.' % (student, subject, subjects[subject])) # old style
+print('{0} 학생의 {1} 과목 성적은 {2}입니다'.format(student, subject, subjects[subject])) # modern style 순서 변환 가능
+print(f'{student}학생의 {subject} 과목 성적은 {subjects[subject]} 입니다') # modern style f-string
 
