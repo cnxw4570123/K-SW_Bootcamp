@@ -9,3 +9,5 @@ def temperature(fah):
 
 
 print(f'화씨 온도 {fahrenheit}도는 섭씨 온도 {temperature(fahrenheit):.1f}도 입니다')
+print(1)
+a = ['해리포터', '그리핀도르', '슬리데린']
