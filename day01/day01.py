@@ -1,13 +1,12 @@
-# 교재 딕셔너리 예제
-subjects = {
-    '의사소통영어': 'A+',
-    '오래된 미래' : 'B+',
-    '양자역학' : ' A',
-}
-subject = '오래된 미래'
-student = '정균민'
-print(student, ' 학생의', subject,' 과목성적은 ', subjects[subject],'입니다')
-print('%s 학생의 %s 과목성적은 %s입니다.' % (student, subject, subjects[subject])) # old style
-print('{0} 학생의 {1} 과목 성적은 {2}입니다'.format(student, subject, subjects[subject])) # modern style 순서 변환 가능
-print(f'{student}학생의 {subject} 과목 성적은 {subjects[subject]} 입니다') # modern style f-string
+import tkinter as tk # mac에서도 지원하는 윈도우창 만드는 라이브러리
+
+win = tk.Tk()
+win.geometry('400x300')
+win.title('파이썬 1일차 preview')
+win.mainloop()
+# elixir
+# github와 같은 버전 컨트롤 시스템 왜 사용?
+# stage에 올린다
+
+
 
