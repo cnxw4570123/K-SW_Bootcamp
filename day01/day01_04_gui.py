@@ -7,4 +7,4 @@ win.mainloop()
 # elixir
 # github와 같은 버전 컨트롤 시스템 왜 사용?
 # stage에 올린다
-# 
+
