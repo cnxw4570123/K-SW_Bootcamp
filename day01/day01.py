@@ -1,14 +1,21 @@
-#(°C × 9/5) + 32 = °F
+# for countdown in 5, 4, 3, 2, 1, 'count!':
+#     print(countdown)
 
-fahrenheit = float(input('화씨 온도 : '))
+# 파이썬은 스네이크 표기법 사용 -> countdown_list
+countdown_list = [5, 4, 3, 2, 1, 'hey']
+for countdown in countdown_list:
+    print(countdown)
 
+print(countdown_list[3])
+print('프로그램 종료')
 
-def temperature(fah):
-    celsius = (fah - 32.0) * (5.0/9.0)
-    return celsius
+# [] -> 인덱싱을 한다
 
-
-print(f'화씨 온도 {fahrenheit}도는 섭씨 온도 {temperature(fahrenheit):.1f}도 입니다')
-print(1)
-a = ['해리포터', '그리핀도르', '슬리데린']
+quotes = {
+    "Moe": "A wise guy, huh?", # key와 value로 나뉨
+    "Larry": "Ow!",
+    "Curly": "Nyuk nyuk!"
+}
+stooge = "Curly"
+print(stooge, "says:", quotes[stooge])
 
