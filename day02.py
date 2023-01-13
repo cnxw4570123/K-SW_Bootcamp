@@ -1,20 +1,21 @@
 # chapter 3
 
-# // -> 몫만 계산
-# ** -> 거듭제곱 연산
+# number = 0b1001_1010
+# print(number)
+# number = 0x9a
+# print(number)
+# number = 0o232
+# print(number)
 
-print(2**5)
-print(pow(2, 5))
+number = 154
 
-print(9 // 5)
-print(divmod(9, 5)) # 튜플로 리턴
+print(hex(number))
+print(oct(number))
+print(bin(number))
+print(ord(" "))
+print(hex(ord(" ")))
 
-print(type((1, 2)))
-test = 1, 2 # packing
-a, b = test # unpacking
-
-print(type(test))
-print(test)
-print(a)
-print(b)
-
+print(int('10', 2)) # binary
+print(int('10', 8)) # octal
+print(int('10', 16)) # hexadecimal
+print(int('10', 22)) # chesterfield
