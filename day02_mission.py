@@ -1,12 +1,16 @@
 import random
 
-secret = random.randint(1, 10)
-guess = int(input("1~10 사이의 정수 입력하세요 : "))
+small = bool(random.randint(0,1))
+green = bool(random.randint(0,1))
 
-if secret > guess :
-    print('too low')
-elif secret < guess:
-    print('too high')
-else :
-    print('just right')
-print(f'secret was {secret} and guess was {guess}')
+print(f"small = {small} and green = {green}")
+if small:
+    if green:
+        print('It is pea')
+    else:
+        print('It is cherry')
+else:
+    if green:
+        print("It is watermelon")
+    else:
+        print("It is pumpkin")
