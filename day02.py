@@ -1,8 +1,2 @@
-harry_potter = {
-    "헤르미온느" : "그리핀도르",
-    "말포이" : "슬리데린",
-    "론" : "그리핀도르"
-}
-
-print(harry_potter)
-print(type(harry_potter))
+PI = 3.14
+print(f"원주율 = {PI} 타입은{type(PI)}")
