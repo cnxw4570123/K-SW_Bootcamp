@@ -1,3 +1,3 @@
-print('%sy Mc%sface' % ('Duck', 'Duck'))
-print('%sy Mc%sface' %('Gourd', 'Gourd'))
-print('%sy Mc%sface' %('Spitz', 'Spitz'))
+print('{0}y Mc{0}face'.format('Duck'))
+print('{0}y Mc{0}face'.format('Gourd'))
+print('{0}y Mc{0}face'.format('Spitz'))
