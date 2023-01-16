@@ -1,8 +1,7 @@
 import random
 
-value = [True, False]
-small = value[random.randint(0, 1)]
-green = value[random.randint(0, 1)]
+small = random.choice([True, False])
+green = random.choice([True, False])
 
 print(f"small = {small} and green = {green}")
 if small:
