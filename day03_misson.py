@@ -1,3 +1,4 @@
-print('{0}y Mc{0}face'.format('Duck'))
-print('{0}y Mc{0}face'.format('Gourd'))
-print('{0}y Mc{0}face'.format('Spitz'))
+list = ['Duck', 'Gourd', 'Spitz']
+print(f'{list[0]}y Mc{list[0]}face')
+print(f'{list[1]}y Mc{list[1]}face')
+print(f'{list[2]}y Mc{list[2]}face')
