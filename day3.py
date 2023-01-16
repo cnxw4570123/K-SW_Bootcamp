@@ -1,14 +1,19 @@
-army = """우리는 국가와 국민에 충성을 다하는 대한민국 육군이다
-하나 우리는 자유민주주의를 수호하며 조국통일의 역군이 된다."""
-print(army)
+univ = 'Inha University'
 
-print('\t 안녕')
+print(univ[5:])
+print(univ[5:14]) # 14 - 1 까지 출력 1글자 잘림
+print(univ[5:15])
+print(univ[-10:]) # -1로 항상 끝을 가르킬 수 있다.
+print(univ[::2])
+print(univ[5:-6])
+print(univ[-10:-6])
 
-start = 'Na ' * 4 + '\n'
-middle = 'hey ' * 3 + '\n'
-end = 'Goodbye .'
-print(start + start + middle + end)
+print(len(univ))
+print(univ.split('i'))
 
-name = 'Henny'
-print(name.replace('H', 'P'))
-print('P'+name[1:])
+pokemons_list = ['피카츄', '라이츄', '꼬부기', '이상해씨', '파이리']
+pokemon_string = ", ".join(pokemons_list)
+print(pokemon_string)
+
+sentence = 'a duck goes into a bar'
+print(sentence.replace('a ', 'a famous ', 100))
