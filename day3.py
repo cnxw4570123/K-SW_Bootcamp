@@ -1,19 +1,17 @@
-univ = 'Inha University'
+subject = ' $   python, data structure, database   $$$'
+print(subject)
+print(subject.strip())
+print(subject.strip('$'))
+print(subject.find('data'), subject.index('data'))
+print(subject.find('inha'))
+# print(subject.index('inha'))
 
-print(univ[5:])
-print(univ[5:14]) # 14 - 1 까지 출력 1글자 잘림
-print(univ[5:15])
-print(univ[-10:]) # -1로 항상 끝을 가르킬 수 있다.
-print(univ[::2])
-print(univ[5:-6])
-print(univ[-10:-6])
+#역순으로 검색
+print(subject.rfind('data'))
+print(subject.rindex('data'))
 
-print(len(univ))
-print(univ.split('i'))
+#개수 검색
+print(subject.count('data'))
 
-pokemons_list = ['피카츄', '라이츄', '꼬부기', '이상해씨', '파이리']
-pokemon_string = ", ".join(pokemons_list)
-print(pokemon_string)
-
-sentence = 'a duck goes into a bar'
-print(sentence.replace('a ', 'a famous ', 100))
+#대소문자 변환
+print(subject.title())
