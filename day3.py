@@ -1,17 +1,14 @@
-subject = ' $   python, data structure, database   $$$'
-print(subject)
-print(subject.strip())
-print(subject.strip('$'))
-print(subject.find('data'), subject.index('data'))
-print(subject.find('inha'))
-# print(subject.index('inha'))
+# while
+while True:
+    dan = int(input('Dan(종료 원하면 \'0\' 입력): '))
+    if dan == 0:
+        break
+    elif 1 < dan < 10:
+        i = 1
+        while i < 10:
+            print('{0} x {1} = {2}'.format(dan, i, dan * i))
+            i += 1
+    else:
+        print('2~9 사이의 값을 입력 하세요.')
+print('종료')
 
-#역순으로 검색
-print(subject.rfind('data'))
-print(subject.rindex('data'))
-
-#개수 검색
-print(subject.count('data'))
-
-#대소문자 변환
-print(subject.title())
