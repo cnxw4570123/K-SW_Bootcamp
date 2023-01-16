@@ -1,7 +1,7 @@
 salutaion = "diligent"
 name = 'Sherlock'
 product = 'laptop'
-verbed = 'didn\' arrived'
+verbed = 'didn\'t arrived'
 room = '109'
 animals = 'cat'
 amount = '$100'
@@ -9,8 +9,8 @@ spokesman = 'edward'
 job_title = 'manager'
 percent = '48'
 
-letter = f"""
-Dear {salutaion} {name}
+letter = """
+Dear {0} {name}
 Thank you for your letter. We are sorry that our {product} {verbed} in your {room}. 
 Please note that iy should never be used in a {room}, especially near any {animals}.
 
