@@ -1,12 +1,26 @@
-song = """When an eel grabs your arm,
-And it causes great harm,
-That's - a moray!
+salutaion = "diligent"
+name = 'Sherlock'
+product = 'laptop'
+verbed = 'didn\' arrived'
+room = '109'
+animals = 'cat'
+amount = '$100'
+spokesman = 'edward'
+job_title = 'manager'
+percent = '48'
+
+letter = f"""
+Dear {salutaion} {name}
+Thank you for your letter. We are sorry that our {product} {verbed} in your {room}. 
+Please note that iy should never be used in a {room}, especially near any {animals}.
+
+Send us your receipt and {amount} for shipping and handling. We will send you
+another {product} that, in our tests, is {percent}% less likely to have {verbed}.
+
+Thank you for your support.
+Sincerely,
+{spokesman}
+{job_title}
 """
 
-song_list = song.split()
-for i in range(len(song_list)):
-    if song_list[i].startswith('m'):
-        song_list[i] = song_list[i].title()
-print(' '.join(song_list))
-
-print('My kitty cat likes %s\n My kitty cat likes %s\n My Kitty cat fell on his %s And now thinks he\'s a %s ' % ('roast beef', 'ham', 'head', 'clam'))
+print(letter)
