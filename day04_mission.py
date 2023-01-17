@@ -1,8 +1,8 @@
-# Prob 8.8
+# Prob 8.9
 
 life = {
     'animals': {
-        'cats': 'Henri',
+        'cats': {'Henri', 'James', 'Scott'},
         'octopi': 'Grumpy',
         'emus': 'Lucy'
     },
@@ -10,4 +10,4 @@ life = {
     'others': {}
 }
 
-print(life['animals'].keys())
+print(life['animals']['cats'])
