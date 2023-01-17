@@ -14,4 +14,4 @@ while True:
         print('oops')
     counts += 1
 
-print(f'attempts = {counts}, guess Number = {guess_me}')
+print(f'attempts = {counts}, guess Number =  {guess_me}')
