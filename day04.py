@@ -1,49 +1,12 @@
-import copy
+# list comprehension
 
-# list
-primes = [2, 19, 3.0, 5, 7, 11]
-primes_cp = primes
-print(primes)
-print(primes_cp)
-primes[-1] = 'lunch time'
-print(primes)
-primes[0] = 'morning coffee'
-print(primes_cp)
-print(primes_cp)
+# odd_list = []
+# for i in range(0, 11):
+#     if i % 2 == 1:
+#         odd_list.append(i)
+odd_list = [odd_num for odd_num in range(1, 11) if odd_num % 2 == 1]
+odd_tuple = (odd_num for odd_num in range(1, 11) if odd_num % 2 == 1)
+print(odd_list, type(odd_list))
+print(odd_tuple, type(odd_tuple))
 
-# primes = [2, 19, 3.0, 5, 7, 11]
-# primes = [2, 19, 3.0, 5, 7, 11]
-# print(primes)
-# primes.sort()
-# print(primes)
-# primes_sorted = sorted(primes)
-# print(primes)
-# print(primes_sorted)
-
-mixed = ['6', '4', '5', 'A', '7', '트와이스', 'B', 'b', '마마무']
-mixed.sort(reverse=True)
-print(mixed)
-
-# a = [1, 2, 3]
-# b = a.copy()
-# c = list(a)
-# d = a[:]
-# a[2] = 'sw' # immutable
-# print(a, b, c, d)
-
-
-# a = [1, 2, [8, 9]]
-# b = a.copy()
-# c = list(a)
-# d = a[:]
-# a[1] = -77  # immutable
-# a[2][1] = 7  # mutable, b/c/d affects
-#
-# print(a, b, c, d)
-
-a = [1, 2, [5, 9]]
-b = copy.deepcopy(a)
-
-a[2][1] = 7  # mutable but deepcopy
-
-print(a, b)
+print(type(range(1, 101))) # 생성해주지 않는다
