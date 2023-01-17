@@ -1,5 +1,9 @@
 # dict
 import random
+# first = {'a': 'apple', 'b':'bear'}
+# second = {'b':'bronze', 'c':'client'}
+# print({**first, **second})
+
 students = {'name': 'kim inha', 'age': 23, 'eyes': [1.1, 0.9]}
 # for k in students.keys():
 # for k in students:
@@ -15,12 +19,14 @@ print(f'시력은 좌 : {students["eyes"][0]} 우 : {students["eyes"][1]}')
 # q입력할 때까지 계속 loop
 # 계산하고 종료
 
-alcohol_foods = {
-    '맥주': '치킨',
-    '소주': '골뱅이소면',
-    '와인': '치즈',
-    '고량주': '짬뽕'
-}
+# alcohol_foods = {
+#     '맥주': '치킨',
+#     '소주': '골뱅이소면',
+#     '와인': '치즈',
+#     '고량주': '짬뽕'
+# }
+
+alcohol_foods = dict([['맥주', '치킨'],['소주','골뱅이소면'],['와인','치즈'],['고량주','짬뽕']])
 
 alcohol_list = list(alcohol_foods)  # extract keys
 while True:
