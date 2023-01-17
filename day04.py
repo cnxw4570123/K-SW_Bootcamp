@@ -35,3 +35,5 @@ del exo[2][-2]  # 대성 삭제
 print(exo)
 exo[-1].remove('인하')
 print(exo)
+exo.clear()
+print(exo)
