@@ -1,4 +1,4 @@
-# Prob 8.6
+# Prob 8.8
 
 life = {
     'animals': {
@@ -10,5 +10,4 @@ life = {
     'others': {}
 }
 
-for root_key in life.keys():
-    print(root_key)
+print(life['animals'].keys())
