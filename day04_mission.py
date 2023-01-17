@@ -1,13 +1,4 @@
-# Prob 8.9
+# Prob 8.10
 
-life = {
-    'animals': {
-        'cats': {'Henri', 'James', 'Scott'},
-        'octopi': 'Grumpy',
-        'emus': 'Lucy'
-    },
-    'plants': {},
-    'others': {}
-}
-
-print(life['animals']['cats'])
+squares = {length : pow(length, 2) for length in range(10) if length > 0}
+print(squares)
