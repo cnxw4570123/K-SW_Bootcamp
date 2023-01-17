@@ -1,39 +1,49 @@
 # list
+primes = [2, 19, 3.0, 5, 7, 11]
+primes_cp = primes
+print(primes)
+print(primes_cp)
+primes[-1] = 'lunch time'
+print(primes)
+primes[0] = 'morning coffee'
+print(primes_cp)
+print(primes_cp)
 
-scores = ('B+', 'A+', 'C+')
-print(scores[1])
-# scores[1] = 'C+'  # immutable
-# scores[2] = 'A+'  # immutable
-temp = list(scores)  # convert to list
-temp[1], temp[2] = temp[2], temp[1]
-print(temp)
-scores = tuple(temp)  # overwrite
-print(scores[1])
-print(scores[2])
 
-big_bang = ['GD', 'TOP', '대성', '태양', '승리']
-# big_bang.append('인하') 가장 마지막에 삽입
-big_bang.insert(1, '인하')  # 특정 위치에 삽입
-print(big_bang)
-print(big_bang * 2)
-exo = ['백현', '첸']
-# exo.extend(big_bang)
-# exo = exo + big_bang
-exo.append(big_bang)
-print(exo)
-print(exo[2][4])  # 태양 출력
-print(exo[-1][-2])
+# primes = [2, 19, 3.0, 5, 7, 11]
+# primes = [2, 19, 3.0, 5, 7, 11]
+# print(primes)
+# primes.sort()
+# print(primes)
+# primes_sorted = sorted(primes)
+# print(primes)
+# print(primes_sorted)
 
-exo[1] = '시우민'
-print(exo)
-# print(exo.pop())  # 빅뱅 전체 삭제
-print(exo[2].pop())  # 승리 삭제
-print(exo[2].pop(-3))  # top 삭제
-print(exo)
+mixed = ['6', '4', '5', 'A', '7', '트와이스', 'B', 'b', '마마무']
+mixed.sort(reverse=True)
+print(mixed)
 
-del exo[2][-2]  # 대성 삭제
-print(exo)
-exo[-1].remove('인하')
-print(exo)
-exo.clear()
-print(exo)
+
+# a = [1, 2, 3]
+# b = a.copy()
+# c = list(a)
+# d = a[:]
+# a[2] = 'sw' # immutable
+# print(a, b, c, d)
+
+
+# a = [1, 2, [8, 9]]
+# b = a.copy()
+# c = list(a)
+# d = a[:]
+#
+# a[2][1] = 7  # mutable, b/c/d affects
+#
+# print(a, b, c, d)
+
+import copy
+a = [1, 2, [5, 9]]
+b = copy.deepcopy(a)
+a[2][1] = 7  # mutable but deepcopy
+
+print(a, b)
