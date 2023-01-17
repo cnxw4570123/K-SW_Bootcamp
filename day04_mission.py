@@ -1,15 +1,14 @@
-# Prob 8.4 ~ 8.5
-e2f = {
-    'dog': 'chien',
-    'cat': 'chat',
-    'walrus': 'morse'
+# Prob 8.6
+
+life = {
+    'animals': {
+        'cats': 'Henri',
+        'octopi': 'Grumpy',
+        'emus': 'Lucy'
+    },
+    'plants': {},
+    'others': {}
 }
 
-for eng_key in e2f:
-    if e2f[eng_key] == 'chien':
-        print(eng_key)
-
-print('-----------------------')
-
-for key in e2f.keys():
-    print(key)
+for root_key in life.keys():
+    print(root_key)
