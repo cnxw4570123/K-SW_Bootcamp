@@ -1,26 +1,41 @@
 # function
-# input 2 numbers
-def is_prime(n):
+def calc_fee(*args):
     """
-    매개변수로 받은 정수가 소수인지 여부를 판정하는 함수
-    :param n: integer number
-    :return: bool value
+    놀이공원 요금 계산 프로그램
+    :param args: ages
+    :return: total entrance fee
     """
-    if n <= 1:
-        return False
-    for k in range(2, n):
-        if n % k == 0:
-            return False
-    else:
-        return True
+    total = 0
+    for age in args:
+        if age > 18:
+            total += 10_000
+        else:
+            total += 3000
+    return total
 
 
-print(is_prime(19))
-# print prime number between start and end
-start, end = input('give 2 numbers : ').split()
-if end < start:
-    start, end = end, start
+print(calc_fee(20, 20, 25))
+print(calc_fee(45, 43, 10, 7))
 
-for divide in range(int(start), int(end)+1):
-    if is_prime(divide):
-        print(divide, end=" ")
+
+# def do_nothing():
+#     pass
+#
+#
+# def buggy(arg, result=[]):
+#     result.append(arg)
+#     print(result)
+#
+#
+# do_nothing()
+# print(do_nothing())
+#
+# mamamoo = ['화사', '솔라', '휘인', '문별']
+# print(mamamoo.pop())  # 리턴 후 삭제
+# print(mamamoo.remove('휘인'))  # 삭제만 -> 리턴 값 없으므로 None 출력
+#
+# buggy('a')
+# buggy('b')
+
+
+
