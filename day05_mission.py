@@ -1,5 +1,13 @@
-# 8.12
-gen = (f'Got {num}' for  num in range(10))  # generator comprehension
-print(type(gen))  # generator object
-for inner_gen in gen:  # iterate generator
-    print(inner_gen)
+# 8.13
+# dict1 = dict()
+# for key, value in zip(('optimist', 'pessimist', 'troll'),('The glass is half full', 'The glass is half empty', 'How did you get a glass?')):
+#     dict1[key] = value
+
+# print(dict1)
+# dict1 = dict(zip(('optimist', 'pessimist', 'troll'),('The glass is half full', 'The glass is half empty', 'How did you get a glass?')))
+# print(dict1)
+
+keys = ('optimist', 'pessimist', 'troll')
+values = ('The glass is half full', 'The glass is half empty', 'How did you get a glass?')
+dict1 = dict(zip(keys, values))
+print(dict1)
