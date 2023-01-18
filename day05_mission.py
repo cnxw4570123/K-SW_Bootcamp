@@ -1,3 +1,5 @@
-# 8.11
-odd_set = {num for num in range(10) if num % 2 == 1}
-print(odd_set)
+# 8.12
+gen = (f'Got {num}' for  num in range(10))  # generator comprehension
+print(type(gen))  # generator object
+for inner_gen in gen:  # iterate generator
+    print(inner_gen)
