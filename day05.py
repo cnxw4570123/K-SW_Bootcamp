@@ -44,3 +44,15 @@ process(numbers, lambda x: x**2)  # 호출할 일이 많이 없으면 람다함�
 # numbers = [random.randint(1, 100) for i in range(5)]
 # print(numbers)
 # process(numbers, squares)
+
+
+def a():
+    n = 2
+
+    def b():
+        return n**2
+
+    return b
+
+
+c = a()
