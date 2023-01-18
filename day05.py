@@ -1,22 +1,46 @@
-# closures
-
-def calculate():
-    x = 1
-    y = 2
-    temp = 0
-
-    def add_sub(n):  # temp가 계속해서 변경됨
-        nonlocal temp
-        # x = 11  # local variable
-        temp = temp + x + n - y
-        return temp
-
-    print('once')
-    return add_sub
+# Lambda func
+#
+# def edit_story(words, f):
+#     for word in words:
+#         print(f(word))
+#
+#
+# stairs = ['thud', 'meow', 'thud', 'hiss']
+#
+# edit_story(stairs, lambda word: word.capitalize() + '!')
 
 
-c1 = calculate()  # calculate 함수는 한 번만 실행한다
-print(type(c1))
-print(c1)
-for i in range(5):
-    print(c1(i))  # add_sub만 5번 실행
+import random
+
+
+def process(no_list, f):
+    for num in no_list:
+        print(f(num))
+
+
+numbers = [random.randint(1, 100) for i in range(5)]
+print(numbers)
+process(numbers, lambda x: x**2)  # 호출할 일이 많이 없으면 람다함수가 유리하다
+
+
+# func as a parameter
+# import random
+#
+#
+# def process(no_list, f):
+#     for num in no_list:
+#         print(f(num))
+#
+#
+# def squares(n):
+#     """
+#     정수를 받아서 제곱해서 반환하는 함수
+#     :param n: 정수 값
+#     :return:  정수를 제곱하여 반환
+#     """
+#     return n**2
+#
+#
+# numbers = [random.randint(1, 100) for i in range(5)]
+# print(numbers)
+# process(numbers, squares)
