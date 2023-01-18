@@ -1,5 +1,4 @@
-# 8.14
-titles = ['Creature of Habit', 'Crewel Fate']
-plots = ['A nun turns into a mon ster', 'A haunted yarn shop']
-movies = dict(zip(titles, plots))
-print(movies)
+# 9.1
+def good():
+    return ['Harry', 'Ron', 'Hermione']
+
