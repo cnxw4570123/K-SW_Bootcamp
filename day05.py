@@ -1,35 +1,67 @@
 # function
-import random
-
-
-def calc_fee(ages) -> dict:
+def inha():
     """
-    놀이공원 요금 계산 프로그램
-    어른 몇 명? 아이 몇 명
-    :param ages: 나이
-    :return: {어른, }
+    단순 숫자 출력 함수
     """
-    fee_detail = {'adult': 0,
-                  'kids': 0,
-                  'total': {
-                      'counts': 0,
-                      'fee': 0}
-                  }
-    for age in ages:
-        if age > 18:
-            fee_detail['adult'] += 1
-        else:
-            fee_detail['kids'] += 1
-    fee_detail['total']['fee'] += 10_000 * fee_detail['adult'] + 3000 * fee_detail['kids']
-    fee_detail['total']['counts'] += fee_detail['adult'] + fee_detail['kids']
-    return fee_detail
+    print(60)
 
 
-n = int(input('몇 명이서 오셨나요? '))
+def call_func(f):
+    """
+    매개변수로 함수를 받아 실행
+    :param f: 함수명
+    """
+    f()  # 함수 실행
 
-age_list = [random.randint(1, 50) for i in range(n)]
-print(age_list)
-receipt = calc_fee(age_list)
-print(receipt)
-print(f'총 {receipt["total"]["counts"]}분, 성인 : {receipt["adult"]}명'
-      f' 아이 : {receipt["kids"]}명\n총 금액 :{receipt["total"]["fee"]}원입니다.')
+
+def subtract(num1, num2):
+    print(num1 - num2)
+
+
+def run_func(f, arg1, arg2):
+    """
+    함수를 매개 변수로 받아 arg1, arg2를 매개변수로 하는 함수 실행
+    :param f: 함수명
+    :param arg1: 정수 값
+    :param arg2: 정수 값
+    :return:
+    """
+    f(arg1, arg2)
+
+
+call_func(inha)
+print(type(call_func))
+
+run_func(subtract, 99, 88)
+
+
+def knights2(saying):  # 클로저
+    def inner2():
+        return f"We are the knights who say : {saying}"
+
+    return inner2
+
+
+a = knights2('duck')
+print(a())
+
+
+def outer(n2):
+    """
+    인수를 받아서 클로저에 인수를 매개변수로 할당한다
+    :param n2: 정수 값
+    :return:
+    """
+    n3 = 3
+    print(f'외부함수 실행, n2=>{n2}, n3=>{n3}')
+
+    def arg_changer():
+        n3 = n2 ** 2
+        print(f'클로저 실행, n2=>{n2}, n3=>{n3}')
+        return n3
+
+    return arg_changer
+
+
+a = outer(10)
+print(a())
