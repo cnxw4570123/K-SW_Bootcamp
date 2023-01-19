@@ -1,30 +1,20 @@
-# def div_calc(n1, n2):
-#     """
-#     나누기 함수
-#     :param n1: 분자
-#     :param n2: 분모
-#     :return: 계산결과
-#     """
-#     return n1 / n2
+# class
+class Pokemon:
+    def __init__(self, name, owner, skills):  # 객체 생성 시 동작
+        self.name = name
+        self.owner = owner
+        self.skills = skills.split('/')
+        print(f'포켓몬 객체 {name} 생성됨')
 
-try:
-    # raise Exception("쉬는 시간!")
-    raise TypeError("쉬는 시간!")
-    expr = input('분자와 분모 입력 : ').split()
-    # print(div_calc(1, 0))
-    print(int(expr[0]) / int(expr[1]))
-    # print(expr[2])
-except ZeroDivisionError as err1:
-    print(err1)
-    print("분모에 0이 올 수 없습니다.")
-except ValueError as err2:
-    print("숫자를 입력해 주세요")
-except IndexError as err3:
-    print(err3)
-    print("2개의 숫자를 띄어쓰기로 구분해 입력해 주세요")
-except Exception as other:
-    print(f"예외 발생!{other}")
-else:  # 예외가 발생하지 않았을 때
-    print('프로그램 정상', end=' ')
-finally:  # 예외 발생 여부에 관계 없이 무조건 실행
-    print('종료')
+    def info(self):
+        print(f"{self.owner}의 포켓몬은 {self.name}입니다.")
+        for index, skill in enumerate(self.skills):
+            print(f'{index+1} : {skill}')
+        print()
+
+
+p1 = Pokemon('피카츄', '한지우', '50만 볼트/100만 볼트/번개')
+p2 = Pokemon('꼬부기', '오바람', '고속 스핀/거품/몸통 박치기/하이드로 펌프')
+for i in [p1, p2]:
+    i.info()
+
