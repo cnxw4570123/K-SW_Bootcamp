@@ -8,7 +8,8 @@
 #     return n1 / n2
 
 try:
-    raise Exception("쉬는 시간!")
+    # raise Exception("쉬는 시간!")
+    raise TypeError("쉬는 시간!")
     expr = input('분자와 분모 입력 : ').split()
     # print(div_calc(1, 0))
     print(int(expr[0]) / int(expr[1]))
@@ -22,8 +23,7 @@ except IndexError as err3:
     print(err3)
     print("2개의 숫자를 띄어쓰기로 구분해 입력해 주세요")
 except Exception as other:
-    print(other)
-    print("예외 발생!")
+    print(f"예외 발생!{other}")
 else:  # 예외가 발생하지 않았을 때
     print('프로그램 정상', end=' ')
 finally:  # 예외 발생 여부에 관계 없이 무조건 실행
