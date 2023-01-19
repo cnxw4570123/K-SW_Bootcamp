@@ -1,7 +1,3 @@
-def sub_int(x, y):
-    return x - y
-
-
 # decorator
 def document_info(f):
     def new_func(*args, **kwargs):
@@ -14,6 +10,15 @@ def document_info(f):
     return new_func
 
 
-print(sub_int(7, 3))
-info_sub_int = document_info(sub_int)
-info_sub_int(7, 3)
+@document_info  # decorator annotation 적용
+def sub_int(x, y):
+    return x - y
+
+
+@document_info
+def squares(x, y):
+    return x**y
+
+
+print(sub_int(7, 3), end="\n\n")
+print(squares(5, 2))
