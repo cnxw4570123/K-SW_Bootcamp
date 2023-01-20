@@ -1,30 +1,88 @@
-class Animal:
-    def says(self):
-        return 'I speak!'
+# class
+class Pokemon:
+    def __init__(self, owner, skills):  # 객체 생성 시 동작
+        self.owner = owner
+        self.skills = skills.split('/')
+        print(f'포켓몬 생성됨 :', end=" ")
+
+    def info(self):
+        print(f"{self.owner}의 포켓몬이 사용가능한 스킬")
+        for index, skill in enumerate(self.skills):
+            print(f'{index+1} : {skill}')
+        print()
+
+    def attack(self, idx):
+        print(f'{self.skills[idx-1]} 공격을 합니다')
 
 
-class Horse(Animal):
-    def says(self):
-        return '말!'
+class Pikachu(Pokemon):  # inheritance
+    def __init__(self, owner, skills):
+        self.name = '피카츄'
+        super().__init__(owner, skills)
+        print(f'{self.name}')
+
+    def attack(self, idx):
+        print(f'{self.owner}의 포켓몬 {self.name}가 {self.skills[idx-1]} 공격(전기)을 시전!')
 
 
-class Donkey(Animal):
-    def says(self):
-        return '당나귀!'
+class Ggoboogi(Pokemon):
+    def __init__(self, owner, skills):
+        self.name = '꼬부기'
+        super().__init__(owner, skills)
+        print(f'{self.name}')
+
+    def attack(self, idx):
+        print(f'{self.owner}의 포켓몬 {self.name}가 {self.skills[idx-1]} 공격(물)을 시전!')
+
+    def swim(self):
+        print(f'{self.name}가 수영을 합니다.')
 
 
-class Mule(Donkey, Horse):
-    pass
+class Pairi(Pokemon):
+    def __init__(self, owner, skills):
+        self.name = '꼬부기'
+        super().__init__(owner, skills)
+        print(f'{self.name}')
+
+    def attack(self, idx):
+        print(f'{self.owner}의 포켓몬 {self.name}가 {self.skills[idx - 1]} 공격(불)을 시전!')
 
 
-class Hinny(Horse, Donkey):
-    pass
-    # def says(self):
-    #     return 'hinny cries'
+while True:
+    menu = input('1) 포켓몬 생성 2) 프로그램 종료 : ')
+    if menu == '2':
+        break
+    elif menu == '1':
+        pokemon = input('1) 피카츄 2) 꼬부기 3) 파이리 :')
+        if pokemon == '1':
+            n = input('플레이어 이름: ')
+            s = input('사용가능한 기술 입력("/"로 구분): ')
+            p = Pikachu(n, s)
+            pass
+        elif pokemon == '2':
+            n = input('플레이어 이름: ')
+            s = input('사용가능한 기술 입력("/"로 구분): ')
+            p = Ggoboogi(n, s)
+        elif pokemon == '3':
+            n = input('플레이어 이름: ')
+            s = input('사용가능한 기술 입력("/"로 구분): ')
+            p = Pairi(n, s)
+        else:
+            print('메뉴에서 골라주세요.')
+    info_atk = input('1) 공격: ')
+    if info_atk == '1':
+        p.info()
+        atk_menu = input('스킬 번호 선택: ')
+        p.attack(int(atk_menu) - 1)
+    else:
+        print('메뉴에서 골라 주세요')
 
-m1 = Mule()
-h1 = Hinny()
-
-print(m1.says())
-print(Mule.mro())
-print(h1.says())
+# p0 = Pokemon('웅이', '공격1/공격2')
+# p0.info()
+# p0.attack(1)
+# pi1 = Pikachu('한지우', '몸통박치기/백만볼트')
+# pi1.info()
+# pi1.attack(2)
+# ggo1 = Ggoboogi('오바람', '고속 스핀/거품/몸통 박치기')
+# ggo1.swim()
+# ggo1.attack(1)
