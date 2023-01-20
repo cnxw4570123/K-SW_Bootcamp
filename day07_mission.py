@@ -1,9 +1,7 @@
-#Prob 10.1
+# Prob 10.2
 
-class Thing():
-    pass
+class Thing2():
+    letters = 'abc'
 
-t1 = Thing()
-t2 = Thing()
-
-print(t1, t2)
+t = Thing2()
+print(t.letters)
