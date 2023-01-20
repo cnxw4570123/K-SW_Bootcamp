@@ -1,14 +1,14 @@
-# Prob 10.2
+# Prob 10.4
+class Element:
+    def __init__(self, name, symbol, number):
+        self.name = name
+        self.symbol = symbol
+        self.number = number
 
-class Thing2():
-    letters = 'abc'
+    def get_item(self):
+        return [self.name , self.symbol, self.number]
 
-t = Thing2()
-print(t.letters)
 
-class Thing3():
-    letters = 'xyz'
+e1 = Element('Hydrogen', 'H', 1)
+print(e1.get_item())
 
-th3 = Thing3()
-print(th3.letters)
-print(Thing3.letters)
