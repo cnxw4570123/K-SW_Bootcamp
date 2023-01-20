@@ -1,24 +1,36 @@
-# 10.9
-
-class Bear:
-    def eat(self):
-        return 'Berries'
-
-
-class Rabbit:
-    def eat(self):
-        return 'Clover'
+# Prob 10.10 
+class Laser:
+    def does(self):
+        return "disintegrate"
 
 
-class Octothorpe:
-    def eat(self):
-        return 'Campers'
+class Claw:
+    def does(self):
+        return "crush"
 
 
-b1 = Bear()
-r1 = Rabbit()
-o1 = Octothorpe()
+class Smartphone:
+    def does(self):
+        return "ring"
 
-print(b1.eat())
-print(r1.eat())
-print(o1.eat())
+
+class Laser_robot(Laser):
+    def does(self):
+        return f'Laser {super().does()}'
+
+
+class Claw_robot(Claw):
+    def does(self):
+        return f'Claw {super().does()}'
+
+
+class Smartphone_robot(Smartphone):
+    def does(self):
+        return f'Smartphone {super().does()}'
+
+lr = Laser_robot()
+print(lr.does())
+cr = Claw_robot()
+print(cr.does())
+sr = Smartphone_robot()
+print(sr.does())
