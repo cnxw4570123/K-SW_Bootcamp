@@ -8,8 +8,16 @@ public class day03 {
         whoIsIt("참새");
         whoIsIt("고등어");
         whoIsIt("곰팡이");
+        String temp = f1(40);
+        System.out.println("temp = " + temp);
     }
-
+    public static String f1(int n){
+        return switch (n){
+            case 1 -> "한개";
+            case 2 -> "두개";
+            default -> "많이";
+        };
+    }
     public static void whoIsIt(String bio){
         String kind = switch (bio){
             case "사자","호랑이" -> { yield "포유류"; }
