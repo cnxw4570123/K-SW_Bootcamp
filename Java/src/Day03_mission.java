@@ -22,4 +22,10 @@ public class Day03_mission {
         }
         System.out.println("1~"+number+" 사이의 소수 개수 = " + prime_count);
     }
+
+    public static Boolean[] isPrime(int number){
+        Boolean checkPrime[] = new Boolean[number];
+
+        return checkPrime;
+    }
 }
