@@ -8,24 +8,18 @@ public class Day03_mission {
         int number = sc.nextInt();
         int prime_count = 0;
         for(int i = 2; i <= number; i++){
-            int count = 0;
-            for(int j = 2; j < i; j++){ // i % j == 0 이면 소수 아님
+            boolean check = false;
+            for(int j = 2; j <= Math.sqrt(i); j++){ // i % j == 0 이면 소수 아님
                 if( i % j == 0) {
-                    count++;
+                    check = true;
                     break;
                 }
             }
-            if(count == 0){
+            if(!check){
                 prime_count++;
                 System.out.println(i + "은(는) 소수이다.");
             }
         }
         System.out.println("1~"+number+" 사이의 소수 개수 = " + prime_count);
-    }
-
-    public static Boolean[] isPrime(int number){
-        Boolean checkPrime[] = new Boolean[number];
-
-        return checkPrime;
     }
 }
