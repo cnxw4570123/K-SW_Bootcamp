@@ -5,18 +5,18 @@ import java.util.Scanner;
 
 public class Ch03 {
     public static void main(String[] args) {
-        System.out.println(factorial(5));
+        foo("안녕", 1);
+        foo("안녕하세요", 1, 2);
+        foo("잘 있어");
+    }
+    static void foo(String val1){
+        System.out.println(val1);
+    }
+    static void foo(String val1, int val2){
+        System.out.println(val1 + " " + val2);
     }
 
-    static int factorial(int n){
-        switch (n) {
-            case 1 -> {
-                return 1;
-            }
-            default -> {
-                return n * factorial(n - 1);
-            }
-        }
+    static void foo(String val1, int val2, int val3){
+        System.out.println(val1+ " " + val2 + " " + val3);
     }
-
 }
