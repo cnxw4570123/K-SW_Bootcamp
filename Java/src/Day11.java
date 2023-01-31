@@ -1,10 +1,7 @@
-import java.io.BufferedInputStream;
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Scanner;
 
 class Person {
+    private final int IQ = 100;
     private String name;
     private int age;
 
@@ -21,6 +18,16 @@ class Person {
     public void talk() {
         System.out.println("이름은 " + this.name + " 나이는 " + this.age);
     }
+
+    public void talk(String nm, int age) {
+        System.out.println("열정을 잃은 " + nm + "의 나이는 " + age);
+    }
+
+    public void talk(int age, String nm) {
+        System.out.println("age = " + age);
+        System.out.println("nm = " + nm);
+    }
+
 
     public String getName() {
         return name;
@@ -52,7 +59,7 @@ class Person {
 }
 
 public class Day11 {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Person ps = new Person();
         ps.setName("길동");
@@ -63,12 +70,13 @@ public class Day11 {
         System.out.println(ps);
         Person hodong = new Person("호동", 45);
         System.out.println(hodong);
-        System.out.print("이름 입력 >> ");
-        String name = sc.next();
-        System.out.print("나이 입력 >> ");
-        int age = sc.nextInt();
-        Person np = new Person(name, age);
-        System.out.println("np = " + np);
-
+//        System.out.print("이름 입력 >> ");
+//        String name = sc.next();
+//        System.out.print("나이 입력 >> ");
+//        int age = sc.nextInt();
+//        Person np = new Person(name, age);
+//        System.out.println("np = " + np);
+        ps.talk("자바", 23);
+        ps.talk(24, "오라클");
     }
 }
