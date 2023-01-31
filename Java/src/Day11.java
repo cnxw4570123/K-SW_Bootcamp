@@ -3,6 +3,7 @@ import java.util.Scanner;
 class Person {
     private final int IQ = 100;
     private String name;
+    static char bloodType = 'A';
     private int age;
 
     public Person() {
@@ -13,6 +14,11 @@ class Person {
         System.out.println("매개변수 2개인 생성자");
         this.name = name;
         this.age = age;
+    }
+
+    public static void display(){
+        System.out.printf("bloodType = %c\n", bloodType);
+//        System.out.println("name = " + this.name);
     }
 
     public void talk() {
@@ -57,7 +63,6 @@ class Person {
         System.out.println(this.name + "이 숨을 쉰다.");
     }
 }
-
 public class Day11 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
@@ -68,15 +73,16 @@ public class Day11 {
         System.out.println(ps.getName());
         ps.breathe();
         System.out.println(ps);
-        Person hodong = new Person("호동", 45);
-        System.out.println(hodong);
-//        System.out.print("이름 입력 >> ");
-//        String name = sc.next();
-//        System.out.print("나이 입력 >> ");
-//        int age = sc.nextInt();
-//        Person np = new Person(name, age);
-//        System.out.println("np = " + np);
+        Person hoDong = new Person("호동", 45);
+        System.out.println(hoDong);
+        System.out.print("이름 입력 >> ");
+        String name = sc.next();
+        System.out.print("나이 입력 >> ");
+        int age = sc.nextInt();
+        Person np = new Person(name, age);
+        System.out.println("np = " + np);
         ps.talk("자바", 23);
         ps.talk(24, "오라클");
+        Person.display();
     }
 }
