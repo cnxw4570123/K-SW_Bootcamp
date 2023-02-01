@@ -1,4 +1,5 @@
 class Person {
+    static String words = "hi";
     protected final int IQ = 100;
     protected String name;
     protected int age;
@@ -46,14 +47,6 @@ class Person {
         return age;
     }
 
-    @Override
-    public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                '}';
-    }
-
     public void setAge(int age) {
         this.age = age;
     }
@@ -66,14 +59,43 @@ class Person {
 class Man extends Person{
     private int money;
     private String job;
-
+    private int IQ = 150;
     public Man(){
         System.out.println("Man의 기본생성자");
     }
+
+    public void getIQ(){
+        System.out.println("sub.IQ = " + IQ);
+        System.out.println("super.IQ = " + super.IQ);
+    }
+    public Man(int money, String job) {
+        this.money = money;
+        this.job = job;
+    }
+
+    public Man(String name, int age, int money, String job) {
+        super(name, age);
+        this.money = money;
+        this.job = job;
+    }
+
     public void status(){
-        System.out.printf("%s\n", name);
-        System.out.println("job = " + job);
-        System.out.println("money = " + money);
+        System.out.printf("""
+                --------
+                이름은 %s,
+                나이는 %d,
+                직업은 %s,
+                소지금은 %d
+                --------
+                """, name, age, job, money);
+    }
+
+    public void setJob(String job) {
+        this.job = job;
+    }
+
+    public String getJob(){
+        return job;
     }
     public void work(){
         System.out.println(name + "이 일한다");
@@ -82,6 +104,7 @@ class Man extends Person{
 
 public class Day12 {
     public static void main(String[] args) {
+//        System.out.println(Person.words);
         Person chulsu = new Person();
         chulsu.name = "철수";
         System.out.println("chulsu.name = " + chulsu.name);
@@ -89,13 +112,12 @@ public class Day12 {
         m1.setName("원빈");
         m1.work();
         System.out.println("m1.getName() = " + m1.getName());
-        System.out.println(sum(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
-    }
+        m1.setJob("연예인");
+        System.out.printf("%s\n", m1.getJob());
+        m1.status();
 
-    public static int sum(int... values){
-        int sum =0;
-        for(int no : values)
-            sum += no;
-        return sum;
+        Man m2 = new Man("유재석", 51, 700_000, "국민MC");
+        m2.status();
+        m1.getIQ();
     }
 }
