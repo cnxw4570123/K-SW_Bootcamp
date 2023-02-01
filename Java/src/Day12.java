@@ -89,5 +89,13 @@ public class Day12 {
         m1.setName("원빈");
         m1.work();
         System.out.println("m1.getName() = " + m1.getName());
+        System.out.println(sum(new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10}));
+    }
+
+    public static int sum(int... values){
+        int sum =0;
+        for(int no : values)
+            sum += no;
+        return sum;
     }
 }
