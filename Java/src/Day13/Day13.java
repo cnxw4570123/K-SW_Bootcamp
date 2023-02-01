@@ -1,6 +1,6 @@
 package Day13;
 
-class Mammal{
+abstract class Mammal{
     protected int typeNum = 1;
     public Mammal(){
         System.out.println("Mammal 생성자 호출");
@@ -12,8 +12,11 @@ class Mammal{
     public void status(){
         System.out.println("Mammal.status");
     }
+
+    public abstract void moving();
 }
-class Person extends Mammal{
+abstract class Person extends Mammal{
+    public abstract void moving();
     static String words = "hi";
     protected final int IQ = 100;
     protected String name;
@@ -75,6 +78,9 @@ class Person extends Mammal{
 }
 
 class Man extends Person {
+    public void moving(){
+        System.out.println("Man이 무빙, 하지만 빨랐죠");
+    }
     private int money;
     private String job;
     private int typeNum = 3;
@@ -126,9 +132,9 @@ class Man extends Person {
 public class Day13 {
     public static void main(String[] args) {
 //        Man m2 = new Man("유재석", 51, 700_000, "국민MC");
-        Man m2 = new Man("유재석", 51, 700_000, "국민MC");
+        Mammal m2 = new Man("유재석", 51, 700_000, "국민MC");
         m2.status(); // 오류 발생 Person 타입으로 promotion됐기 때문에 문제가 생김
         m2.talk();
-
+        m2.moving();
     }
 }
