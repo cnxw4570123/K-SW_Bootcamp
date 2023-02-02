@@ -2,7 +2,7 @@ package Day13;
 
 interface Vehicle{
 
-//    public static final int YEAR = 2022;
+    public abstract void fetch();
     int YEAR = 2022;
     void start();
     static class Price{
@@ -19,8 +19,12 @@ interface Vehicle{
         System.out.println("방향전환한다.");
     }
 }
-
-abstract class Car implements Vehicle{
+class Carrier{
+    public void fetch(){
+        System.out.println("carries passengers");
+    }
+}
+abstract class Car extends Carrier implements Vehicle{ // Carrier가 첫번째 부모, vehicle이 두번째 부모
 
 }
 class Sedan extends Car{
@@ -29,6 +33,12 @@ class Sedan extends Car{
         System.out.println("Sedan drives");
     }
     public Sedan(){}
+
+    @Override
+    public void fetch() {
+        System.out.print("Sedan ");
+        super.fetch();
+    }
 
     @Override
     public String toString() {
@@ -45,61 +55,13 @@ class Sedan extends Car{
     }
 }
 
-interface Zerg{
-    int POPULATION = 10;
-    default public void zergAtk(){
-        System.out.println("Zerg attacks");
-    }
-    public abstract void display();
-}
-
-interface Terran{
-    public abstract void terranAtk();
-}
-interface Protos{
-    public abstract void protosAtk();
-}
-interface Game extends Zerg, Terran, Protos{
-    void goodGame();
-}
-
-class StarCraft implements Game{
-    @Override
-    public void goodGame() {
-        System.out.println("GG");
-    }
-
-    @Override
-    public void display() {
-        System.out.println("Zerg pop disp = " + POPULATION);
-    }
-
-    @Override
-    public void terranAtk() {
-        System.out.println("Terran attacks");
-    }
-
-    @Override
-    public void protosAtk() {
-        System.out.println("Porotos attacks");
-    }
-}
-
 public class Day13 {
     public static void main(String[] args) {
-        Game s1 = new StarCraft();
-        s1.zergAtk();
-        s1.display();
-        s1.goodGame();
-//         Vehicle iob = new Vehicle();
-//        Vehicle s = new Sedan();
-//        Sedan coupe = new Sedan();
-//        Vehicle coupe = new Sedan();
         Vehicle coupe = new Sedan();
-//        ((Sedan)coupe).drive();  // 다운 캐스팅 사용
         coupe.drive();
         coupe.start();
         coupe.stop();
+        coupe.fetch();
         Vehicle.turn();
     }
 }
