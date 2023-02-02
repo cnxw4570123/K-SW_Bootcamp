@@ -1,4 +1,5 @@
-# class
+# Pokemon v0.3
+# property
 class Pokemon:
     def __init__(self, owner, skills):  # 객체 생성 시 동작
         self.hidden_owner = owner
@@ -19,6 +20,7 @@ class Pokemon:
 
     def attack(self, idx):
         print(f'{self.skills[idx - 1]} 공격을 합니다')
+    owner = property(get_owner, set_owner)
 
 
 class Pikachu(Pokemon):  # inheritance
