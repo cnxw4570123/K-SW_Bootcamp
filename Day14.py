@@ -30,7 +30,7 @@ class Pikachu(Pokemon):  # inheritance
         print(f'{self.name}')
 
     def attack(self, idx):
-        print(f'{self.get_owner()}의 포켓몬 {self.name}가 {self.skills[idx - 1]} 공격(전기)을 시전!')
+        print(f'{self.owner}의 포켓몬 {self.name}가 {self.skills[idx - 1]} 공격(전기)을 시전!')
 
 
 class Ggoboogi(Pokemon):
@@ -40,7 +40,7 @@ class Ggoboogi(Pokemon):
         print(f'{self.name}')
 
     def attack(self, idx):
-        print(f'{self.get_owner()}의 포켓몬 {self.name}가 {self.skills[idx - 1]} 공격(물)을 시전!')
+        print(f'{self.owner}의 포켓몬 {self.name}가 {self.skills[idx - 1]} 공격(물)을 시전!')
 
     def swim(self):
         print(f'{self.name}가 수영을 합니다.')
@@ -53,17 +53,17 @@ class Pairi(Pokemon):
         print(f'{self.name}')
 
     def attack(self, idx):
-        print(f'{self.get_owner()}의 포켓몬 {self.name}가 {self.skills[idx - 1]} 공격(불)을 시전!')
+        print(f'{self.owner}의 포켓몬 {self.name}가 {self.skills[idx - 1]} 공격(불)을 시전!')
 
 
 while True:
     menu = input('1) 포켓몬 생성 2) 프로그램 종료 : ')
-    n = input('플레이어 이름: ')
-    s = input('사용가능한 기술 입력("/"로 구분): ')
     if menu == '2':
         break
     elif menu == '1':
         pokemon = input('1) 피카츄 2) 꼬부기 3) 파이리 :')
+        n = input('플레이어 이름: ')
+        s = input('사용가능한 기술 입력("/"로 구분): ')
         if pokemon == '1':
             p = Pikachu(n, s)
             pass
