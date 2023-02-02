@@ -2,15 +2,17 @@
 # property
 class Pokemon:
     def __init__(self, owner, skills):  # 객체 생성 시 동작
-        self.hidden_owner = owner
+        self.__hidden_owner = owner  # like private
         self.skills = skills.split('/')
         print(f'포켓몬 생성됨 :', end=" ")
 
-    def get_owner(self):
-        return self.hidden_owner
+    @property
+    def owner(self):
+        return self.__hidden_owner
 
-    def set_owner(self, owner):
-        self.hidden_owner = owner
+    @owner.setter
+    def owner(self, owner):
+        self.__hidden_owner = owner
 
     def info(self):
         print(f"{self.hidden_owner}의 포켓몬이 사용가능한 스킬")
@@ -20,7 +22,7 @@ class Pokemon:
 
     def attack(self, idx):
         print(f'{self.skills[idx - 1]} 공격을 합니다')
-    owner = property(get_owner, set_owner)
+    # owner = property(get_owner, set_owner)
 
 
 class Pikachu(Pokemon):  # inheritance
@@ -66,6 +68,8 @@ while True:
         s = input('사용가능한 기술 입력("/"로 구분): ')
         if pokemon == '1':
             p = Pikachu(n, s)
+            # p.owner = "한지우"  # setter 동작
+            p.hidden_owner = '한지우'  # 허용되지 않는 접근
             pass
         elif pokemon == '2':
             p = Ggoboogi(n, s)
