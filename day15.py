@@ -1,53 +1,20 @@
-def print_poly(px, tx):
-    """
-    다항식 출력
-    :param px: 계수
-    :param tx: 차수
-    :return:
-    """
-    term = len(px) - 1  # 최고차항 숫자 = 배열길이-1
-    polyStr = "P(x) = "
-    for i in range(len(px)):
-        coef = px[i]  # 계수
-        term = tx[i]
-
-        if coef > 0:
-            polyStr += "+"
-        if term > 0:
-            polyStr += f"{coef}x^{term} "
-        else:
-            polyStr += f"{coef}"
-
-    return polyStr
+def add_friends(friends_list, *friend_instance):
+    # print(friend)
+    for idx in range(len(friends_list)):  # 0번 idx부터 f_list 길이만큼 반복
+        if friend_instance[1] >= friends_list[idx][1]:  # 해당 idx의 연락량이랑 추가되는 연락량 비교
+            friends_list.insert(idx, friend_instance)
+            break
+    else:
+        friends_list.append(friend_instance)
 
 
-def calc_poly(x_val, px, tx):
-    """
-    다항식 계산
-    :param x_val:
-    :param px:
-    :return:
-    """
-    ret_value = 0
-    term = len(px) - 1  # 최고차항 숫자 = 배열길이-1
+friends = [("다현", 200), ("정연", 150), ("쯔위", 90), ("사나", 40), ("지효", 15)]
 
-    for i in range(len(px)):
-        coef = px[i]  # 계수
-        ret_value += coef * x_val**term
-        term -= 1
-
-    return ret_value
-
-
-# px = [7, -4, 0, 5]
-px = [3, -4, 5]
-tx = [300, 20, 0]
-
-if __name__ == "__main__":
-    pStr = print_poly(px, tx)
-    print(pStr)
-
-    x_value = int(input("X 값-->"))
-
-    px_value = calc_poly(x_value, px, tx)
-    print(px_value)
+while True:
+    friend = input("추가할 친구 입력 > ")
+    if friend == "0":
+        break
+    else:
+        count = input("연락 횟수 : ")
+        add_friends(friends, friend, int(count))
+    print(friends)
