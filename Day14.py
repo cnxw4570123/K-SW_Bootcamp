@@ -39,7 +39,6 @@ class Pikachu(Pokemon):  # inheritance
     def attack(self, idx):
         print(f'[피카~!]{self.owner}의 포켓몬 {self.name}가 {self.skills[idx - 1]} 공격(전기)을 시전!')
 
-
 class Ggoboogi(Pokemon):
     def __init__(self, owner, skills):
         self.name = '꼬부기'
