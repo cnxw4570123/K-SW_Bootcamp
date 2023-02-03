@@ -1,14 +1,22 @@
+def add_data(pokemon):
+    pokemons.append(None)
+    pokemons[len(pokemons) - 1] = pokemon
+
+
 def insert_data(idx, pokemon):
+    """
+     선형 리스트 idx 위치를 기반으로 원소 삭제
+    :param idx: int
+    :param pokemon: str
+    :return:
+    """
     if idx < 0 or idx > len(pokemons):
         print("데이터를 삽입할 범위를 벗어났습니다.")
         return
-
     pokemons.append(None)  # 빈칸 추가
-
     for i in range(len(pokemons) - 1, idx, -1):
         pokemons[i] = pokemons[i - 1]
         pokemons[i - 1] = None
-
     pokemons[idx] = pokemon  # 지정한 위치에 친구 추가
 
 
@@ -27,30 +35,28 @@ def delete_data(idx):
         pokemons.pop()
 
 
+pokemons = []
 if __name__ == "__main__":
-    pokemons = ["피카츄", "라이츄", "파이리", "꼬부기", "버터플"]
 
-    print(pokemons)
-    # insert_data(2, "야도란")
-    delete_data(4)
-    # # insert_data(6, "피존투")
-    print(pokemons)
-    delete_data(1)
-    print(pokemons)
-
-
-# pokemons = list()
-#
-#
-# def add_pokemon(pokemon):
-#     pokemons.append(None)
-#     pokemons[-1] = pokemon
-#
-#
-# add_pokemon("피카츄")
-# add_pokemon("라이츄")
-# add_pokemon("파이리")
-# add_pokemon("꼬부기")
-# add_pokemon("버터플")
-#
-# print(pokemons)
+    while True:
+        menu = input("선택하세요(1: 추가, 2: 삽입, 3: 삭제, 4: 종료)--> ")
+        if menu == "1":
+            data = input("추가할 데이터--> ")
+            add_data(data)
+            print(pokemons)
+        elif menu == "2":
+            idx = int(input("삽입할 위치--> "))
+            data = input("추가할 데이터--> ")
+            insert_data(idx, data)
+            print(pokemons)
+        elif menu == "3":
+            idx = int(input("삭제할 위치--> "))
+            delete_data(idx)
+            print(pokemons)
+        elif menu == "4":
+            print(pokemons)
+            # exit()
+            break
+        else:
+            print("메뉴에서 고르세요.")
+            continue
