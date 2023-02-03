@@ -1,20 +1,45 @@
-def add_friends(friends_list, *friend_instance):
-    # print(friend)
-    for idx in range(len(friends_list)):  # 0번 idx부터 f_list 길이만큼 반복
-        if friend_instance[1] >= friends_list[idx][1]:  # 해당 idx의 연락량이랑 추가되는 연락량 비교
-            friends_list.insert(idx, friend_instance)
-            break
-    else:
-        friends_list.append(friend_instance)
+# 클래스와 함수 선언 부분
+class Node:
+    def __init__(self):
+        self.data = None
+        self.link = None
 
 
-friends = [("다현", 200), ("정연", 150), ("쯔위", 90), ("사나", 40), ("지효", 15)]
+def print_nodes(start):
+    """
+    현재 노드부터 마지막 노드 까지 출력해주는 메소드
+    :param start: 첫 노드
+    :return: None
+    """
+    current = start
+    if current is None:
+        return
+    print(current.data, end=" ")
+    while current.link is not None:
+        current = current.link
+        print(current.data, end=" ")
+    print()
 
-while True:
-    friend = input("추가할 친구 입력 > ")
-    if friend == "0":
-        break
-    else:
-        count = input("연락 횟수 : ")
-        add_friends(friends, friend, int(count))
-    print(friends)
+
+# 전역 변수 선언 부분
+memory = []
+head, current, pre = None, None, None
+dataArray = ["피카츄", "라이츄", "파이리", "꼬부기", "버터풀"]
+
+# 메인 코드 부분
+if __name__ == "__main__":
+
+    node = Node()  # 첫 번째 노드
+    node.data = dataArray[0]
+    head = node
+    memory.append(node)
+
+    for data in dataArray[1:]:  # 두 번째 이후 노드
+        pre = node
+        node = Node()
+        node.data = data
+        pre.link = node
+        memory.append(node)
+
+    print_nodes(head)
+    print(node.data)
