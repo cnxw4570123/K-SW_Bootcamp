@@ -18,12 +18,13 @@ def delete_data(idx):
         return
 
     p_count = len(pokemons)
-    pokemons[idx] = None  # 데이터 삭제
+    pokemons[idx] = None
 
-    for i in range(idx + 1, p_count):
-        pokemons[i - 1] = pokemons[i]
-        pokemons[i] = None  # 배열의 맨 마지막 위치 삭제
-    pokemons.pop(p_count - 1)
+    # for i in range(idx + 1, p_count):
+    #     pokemons[i] = None
+
+    for i in range(idx, p_count):
+        pokemons.pop()
 
 
 if __name__ == "__main__":
@@ -31,10 +32,10 @@ if __name__ == "__main__":
 
     print(pokemons)
     # insert_data(2, "야도란")
-    delete_data(6)
-    # insert_data(6, "피존투")
+    delete_data(4)
+    # # insert_data(6, "피존투")
     print(pokemons)
-    delete_data(3)
+    delete_data(1)
     print(pokemons)
 
 
