@@ -12,12 +12,29 @@ def insert_data(idx, pokemon):
     pokemons[idx] = pokemon  # 지정한 위치에 친구 추가
 
 
+def delete_data(idx):
+    if idx < 0 or idx > len(pokemons):
+        print("Out of range!")
+        return
+
+    p_count = len(pokemons)
+    pokemons[idx] = None  # 데이터 삭제
+
+    for i in range(idx + 1, p_count):
+        pokemons[i - 1] = pokemons[i]
+        pokemons[i] = None  # 배열의 맨 마지막 위치 삭제
+    pokemons.pop(p_count - 1)
+
+
 if __name__ == "__main__":
     pokemons = ["피카츄", "라이츄", "파이리", "꼬부기", "버터플"]
 
-    insert_data(2, "야도란")
     print(pokemons)
-    insert_data(6, "피존투")
+    # insert_data(2, "야도란")
+    delete_data(6)
+    # insert_data(6, "피존투")
+    print(pokemons)
+    delete_data(3)
     print(pokemons)
 
 
