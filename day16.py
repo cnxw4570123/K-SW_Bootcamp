@@ -1,4 +1,6 @@
-# 클래스와 함수 선언 부분
+import random
+
+
 class Node:
     def __init__(self, data=None):
         self.data = data
@@ -103,37 +105,60 @@ def is_find(find_data):
     return False
 
 
+def count_odd_even():
+    global head, current
+    # SRP 위배
+    # if head is None:
+    #     return False
+    even, odd = 0, 0
+    current = head
+    while True:
+        if current.data % 2 == 0:
+            even += 1
+        else:
+            odd += 1
+        if current.link == head:
+            break
+        current = current.link
+    return even, odd
+
+
+def make_minus_no(even, odd):
+    global current, head
+    if even > odd:
+        remainder = 0
+    else:
+        remainder = 1
+
+    current = head
+    while current.link != head:
+        if current.data % 2 == remainder:
+            current.data *= -1
+        current = current.link
+
+
 # 전역 변수 선언 부분
 head, current, pre = None, None, None
-data_array = ["피카츄", "라이츄", "파이리", "꼬부기", "버터풀"]
+data_array = list()
 # 메인 코드 부분
 if __name__ == "__main__":
+    # odd_even = count_odd_even() # False 리턴
+    for _ in range(7):
+        data_array.append(random.randint(1, 100))
+    # print(data_array)
 
-    node = Node(data_array[0])  # 첫 번째 노드
+    node = Node(data_array[0])
     head = node
+    node.link = node
 
-    for data in data_array[1:]:  # 두 번째 이후 노드
+    for data in data_array[1:]:
         pre = node
         node = Node(data)
         pre.link = node
         node.link = head
 
-    print(find_node("꼬부기").data)
-    print(find_node("김인하").data)
-    print(find_node("파이리").data)
     print_nodes(head)
-    # insert_node("피카츄", "잠만보")
-    # print_nodes(head)
-    # insert_node("꼬부기", "어니부기")
-    # print_nodes(head)
-    # insert_node("성윤모", "거북왕")
-    # print_nodes(head)
-    # delete_node("잠만보")
-    # print_nodes(head)
-    # delete_node("어니부기")
-    # find_node("잠만보")
-    # print_nodes(head)
-    # delete_node("강찬석")
-    # print_nodes(head)
-    # print(find_node("파이리").data)
-    # print(find_node("박민석").data)
+    odd_even = count_odd_even()
+    print(f"Even Number : {odd_even[0]} Odd Number : {odd_even[1]}")
+    make_minus_no(*odd_even)
+    print_nodes(head)
