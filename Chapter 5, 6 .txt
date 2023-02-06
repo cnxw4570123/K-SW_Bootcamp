@@ -1,0 +1,44 @@
+5장 연습문제
+1.
+3, 4
+
+2. 
+node1.link = node1
+
+3. 
+node2.link = node3.link
+node3
+
+4. 
+2, 3
+
+5.
+Current = head
+Last = last.link
+Last.link = head
+
+6.
+Return current
+Current.link != head
+Current = current.link
+
+
+6장 연습문제
+1.
+4
+
+2.
+Push, pop, top
+
+3.
+Top += 1
+
+4.
+2
+
+5.
+4
+
+6.
+Return True
+Return stack[top]
