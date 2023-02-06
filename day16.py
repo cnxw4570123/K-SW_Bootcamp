@@ -1,80 +1,36 @@
-import random
+Stack = [None for _ in range(5)]
+top = -1
 
+top += 1
+Stack[top] = "커피"
+top += 1
+Stack[top] = "녹차"
+top += 1
+Stack[top] = "꿀물"
+top += 1
+Stack[top] = "바닐라라떼"
+top += 1
+Stack[top] = "아이스티"
+# top += 1  # stack overFlow
+# Stack[top] = "카라멜마끼아또"
 
-class Node:
-    def __init__(self, data=None):
-        self.data = data
-        self.link = self
+for i in range(len(Stack) - 1, -1, -1):
+    print(Stack[i])
 
+data = Stack[top]
+Stack[top] = None
+top -= 1
+print(f"pop -> {data}")
 
-def print_nodes(start):
-    """
-    현재 노드부터 마지막 노드 까지 출력해주는 메소드
-    :param start: 첫 노드
-    :return: None
-    """
-    current = start
-    if current is None:
-        return
-    print(current.data, end=" ")
-    while current.link != start:
-        current = current.link
-        print(current.data, end=" ")
-    print()
+data = Stack[top]
+Stack[top] = None
+top -= 1
+print(f"pop -> {data}")
 
+data = Stack[top]
+Stack[top] = None
+top -= 1
+print(f"pop -> {data}")
 
-def count_plus_minus():
-    global head, current
-    plus, minus, zero = 0, 0, 0
-    current = head
-    while True:
-        if current.data > 0:
-            plus += 1
-        elif current.data < 0:
-            minus += 1
-        else:
-            zero += 1
-        if current.link == head:
-            break
-        current = current.link
-    return plus, minus, zero
-
-
-def reverse_sign():
-    global head, current
-
-    current = head
-    while True:
-        if current.data:
-            current.data *= -1
-        if current.link == head:
-            break
-        current = current.link
-
-
-head, current, pre = None, None, None
-data_array = list()
-# 메인 코드 부분
-if __name__ == "__main__":
-    # odd_even = count_odd_even() # False 리턴
-    for _ in range(7):
-        data_array.append(random.randint(-100, 100))
-    # print(data_array)
-
-    node = Node(data_array[0])
-    head = node
-    node.link = node
-
-    for data in data_array[1:]:
-        pre = node
-        node = Node(data)
-        pre.link = node
-        node.link = head
-
-    print_nodes(head)
-    plus_minus_zero = count_plus_minus()
-    print(
-        f"+ : {plus_minus_zero[0]}, - : {plus_minus_zero[1]}, 0 : {plus_minus_zero[2]}"
-    )
-    reverse_sign()
-    print_nodes(head)
+for i in range(len(Stack) - 1, -1, -1):
+    print(Stack[i])
