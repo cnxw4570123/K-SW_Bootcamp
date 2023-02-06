@@ -2,7 +2,7 @@
 class Node:
     def __init__(self, data=None):
         self.data = data
-        self.link = None
+        self.link = self
 
 
 def print_nodes(start):
@@ -15,7 +15,7 @@ def print_nodes(start):
     if current is None:
         return
     print(current.data, end=" ")
-    while current.link is not None:
+    while current.link != start:
         current = current.link
         print(current.data, end=" ")
     print()
@@ -27,11 +27,15 @@ def insert_node(find_data, insert_data):
 
     if head.data == find_data:  # 첫 번째 노드 삽입
         node.link = head
+        last = head
+        while last.link != head:
+            last = last.link
+        last.link = node
         head = node
         return
 
     current = head
-    while current.link is not None:  # 중간 노드 삽입
+    while current.link != head:  # 중간 노드 삽입
         pre = current
         current = current.link
         if current.data == find_data:
@@ -39,6 +43,7 @@ def insert_node(find_data, insert_data):
             pre.link = node
             return
     current.link = node
+    node.link = head
 
 
 def delete_node(del_data):
@@ -52,7 +57,7 @@ def delete_node(del_data):
         return
 
     current = head
-    while current.link is not None:
+    while current.link != head:
         pre = current
         current = current.link
         if current.data == del_data:
@@ -66,19 +71,36 @@ def delete_node(del_data):
 
 
 def find_node(find_data):
-    global memory, head, current, pre
-    # current = head
-    # if current.data == find_data:
-    #     return current
+    global head, current, pre
+    current = head
+    if current.data == find_data:
+        return current
 
     current = head
-    while current.link is not None:
+    while current.link != head:
         if current.data == find_data:
-            if head == current:
-                print("첫 노드")
             return current
         current = current.link
     return Node()
+
+
+def is_find(find_data):
+    """
+    찾으면 True를 못찾으면 False를 반환하는 함수
+    :param find_data : 찾고자 하는 원소. str
+    :return: True or False
+    """
+    global head, current, pre
+    current = head
+    if current.data == find_data:
+        return True
+
+    current = head
+    while current.link != head:
+        if current.data == find_data:
+            return True
+        current = current.link
+    return False
 
 
 # 전역 변수 선언 부분
@@ -94,19 +116,24 @@ if __name__ == "__main__":
         pre = node
         node = Node(data)
         pre.link = node
+        node.link = head
 
-    print_nodes(head)
-    insert_node("피카츄", "잠만보")
-    print_nodes(head)
-    insert_node("꼬부기", "어니부기")
-    print_nodes(head)
-    insert_node("성윤모", "거북왕")
-    print_nodes(head)
-    delete_node("잠만보")
-    print_nodes(head)
-    delete_node("어니부기")
-    print_nodes(head)
-    delete_node("강찬석")
-    print_nodes(head)
+    print(find_node("꼬부기").data)
+    print(find_node("김인하").data)
     print(find_node("파이리").data)
-    print(find_node("박민석").data)
+    print_nodes(head)
+    # insert_node("피카츄", "잠만보")
+    # print_nodes(head)
+    # insert_node("꼬부기", "어니부기")
+    # print_nodes(head)
+    # insert_node("성윤모", "거북왕")
+    # print_nodes(head)
+    # delete_node("잠만보")
+    # print_nodes(head)
+    # delete_node("어니부기")
+    # find_node("잠만보")
+    # print_nodes(head)
+    # delete_node("강찬석")
+    # print_nodes(head)
+    # print(find_node("파이리").data)
+    # print(find_node("박민석").data)
