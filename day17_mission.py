@@ -1,16 +1,17 @@
+import random
+
+
 class Queue:
+    time = 0
+
     def __init__(self, size):
-        self.front = -1
-        self.rear = -1
+        self.front = 0
+        self.rear = 0
         self.size = size
         self.items = [None for _ in range(size)]
 
     def is_full(self):
-        if self.rear != self.size - 1:
-            return False
-        elif self.rear == self.size - 1 and self.front == -1:
-            return True
-        return False
+        return (self.rear + 1) % self.size == self.front
 
     def is_empty(self):
         return self.front == self.rear
@@ -19,32 +20,40 @@ class Queue:
         if self.is_full():
             print("Queue is Full")
             return
-        self.rear += 1
+        self.rear = (self.rear + 1) % self.size
         self.items[self.rear] = data
+        Queue.time += data[1]
 
     def dequeue(self):
         if self.is_empty():
             print("Queue is Empty!")
             return
-        self.front += 1
+        self.front = (self.front + 1) % self.size
         data = self.items[self.front]
-        for i in range(self.front + 1, self.size):
-            self.items[i - 1] = self.items[i]
-            self.items[i] = None
-        self.front -= 1
-        self.rear -= 1
-        # self.items[self.front] = None
-        return f"{data} enters into cafeteria"
+        self.items[self.front] = None
+        Queue.time -= data[1]
 
     def __str__(self):
         return f"Queue status : {self.items}"
 
+    @staticmethod
+    def print_time():
+        print(f"Time to be waited : {Queue.time}")
+
 
 if __name__ == "__main__":
-    guests = ["guest1", "guest2", "guest3", "guest4", "guest5"]
     queue = Queue(5)
-    for guest in guests:
+    time_table = [("Inquery", 9), ("repair", 3), ("refund", 4), ("other", 1)]
+
+    Queue.print_time()
+    print(queue)
+
+    for guest in random.choices(time_table, k=queue.size - 1):
         queue.enqueue(guest)
-    for _ in range(queue.size):
+        Queue.print_time()
         print(queue)
-        print(queue.dequeue())
+    print("------------------------------------------------------------------")
+    for _ in range(queue.size - 1):
+        queue.dequeue()
+        Queue.print_time()
+        print(queue)
