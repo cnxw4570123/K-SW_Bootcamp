@@ -7,11 +7,6 @@ class Stack:
         self.items = [None for _ in range(size)]
         self.top = -1
 
-    # def is_empty(self):
-    #     if self.size == 0:
-    #         return True
-    #     return False
-
     def peek(self):
         try:
             return self.items[self.top]
@@ -35,20 +30,21 @@ class Stack:
             print("Stack is Full")
 
 
-stk = Stack(10)
-stones = ["red", "blue", "green", "yellow", "purple", "orange"]
-random.shuffle(stones)
+if __name__ == "__main__":
+    stk = Stack(10)
+    stones = ["red", "blue", "green", "yellow", "purple", "orange"]
+    random.shuffle(stones)
 
-for stone in stones:
-    stk.push(stone)
+    for stone in stones:
+        stk.push(stone)
 
-print("way to Gingerbread house", end=" ")
-while stk.peek() is not None:
-    print(stk.pop(), end=" --> ")
-print("Gingerbread house")
+    print("way to Gingerbread house", end=" ")
+    while stk.peek() is not None:
+        print(stk.pop(), end=" --> ")
+    print("Gingerbread house")
 
-print("way to my home", end=" ")
-for stone in stones:
-    stk.push(stone)
-    print(stk.peek(), end=" --> ")
-print("my home")
+    print("way to my home", end=" ")
+    for stone in stones:
+        stk.push(stone)
+        print(stk.peek(), end=" --> ")
+    print("my home")

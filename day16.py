@@ -62,6 +62,6 @@ if __name__ == "__main__":
             print("Top is: ", data)
             print("Stack Status: ", stack)
         else:
-            print("입력이 잘못됨")
+            print("select menu ")
 
     print("프로그램 종료!")
