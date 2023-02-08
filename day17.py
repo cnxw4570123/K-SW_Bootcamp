@@ -1,66 +1,66 @@
-class CircularQueue:
-    def __init__(self, size):
-        self.front = 0
-        self.rear = 0
-        self.size = size
-        self.items = [None for _ in range(size)]
+class Node:
+    def __init__(self, data=None):
+        self.left = None
+        self.data = data
+        self.right = None
 
-    def is_full(self):
-        return (self.rear + 1) % self.size == self.front
 
-    def is_empty(self):
-        return self.front == self.rear
+class BinaryTree:
+    def __init__(self):
+        self.root = None
 
-    def enqueue(self, data):
-        if self.is_full():
-            print("Queue is Full!")
+    def append_child(self, data):
+        node = Node(data)
+        if self.root is None:
+            self.root = node
             return
-        self.rear = (self.rear + 1) % self.size
-        self.items[self.rear] = data
+        current = self.root
+        while True:
+            if current.data > node.data:
+                if current.left is None:
+                    current.left = node
+                    break
+                current = current.left
+            else:
+                if current.data < node.data:
+                    if current.right is None:
+                        current.right = node
+                        break
+                    current = current.right
 
-    def dequeue(self):
-        if self.is_empty():
-            print("Queue is Empty!")
+    def preorder(self, node):
+        if node is None:
             return
-        self.front = (self.front + 1) % self.size
-        data = self.items[self.front]
-        self.items[self.front] = None
-        return data
+        print(node.data, end=" -> ")
+        self.preorder(node.left)
+        self.preorder(node.right)
 
-    def peek(self):
-        if self.is_empty():
-            print("Queue is Empty!")
-            return None
-        return self.items[(self.front + 1) % self.size]
+    def inorder(self, node):
+        if node is None:
+            return
+        self.inorder(node.left)
+        print(node.data, end=" -> ")
+        self.inorder(node.right)
 
-    def __str__(self):
-        return f"{self.items}"
+    def postorder(self, node):
+        if node is None:
+            return
+        self.postorder(node.left)
+        self.postorder(node.right)
+        print(node.data, end=" -> ")
 
 
 if __name__ == "__main__":
-    Q_size = int(input("Input Queue Size: "))
-    queue = CircularQueue(Q_size)
-
-    while True:
-        select = input("Insertion(I)/Extraction(E)/Verify(V)/Exit(X) Choose one ==> ")
-        if select == "X" or select == "x":
-            break
-        if select == "I" or select == "i":
-            data = input("Input Data ==> ")
-            queue.enqueue(data)
-            print("Queue Status : ", queue)
-            print("front : ", queue.front, ", rear : ", queue.rear)
-        elif select == "E" or select == "e":
-            data = queue.dequeue()
-            print("Extracted Data ==> ", data)
-            print("Queue Status : ", queue)
-            print("front : ", queue.front, ", rear : ", queue.rear)
-        elif select == "V" or select == "v":
-            data = queue.peek()
-            print("Verified Data ==> ", data)
-            print("Queue Status : ", queue)
-            print("front : ", queue.front, ", rear : ", queue.rear)
-        else:
-            print("Wrong Input")
-
-    print("End!")
+    group = ["화사", "솔라", "문별", "휘인", "쯔위", "선미", "다현", "사나"]
+    b_tree = BinaryTree()
+    for member in group:
+        b_tree.append_child(member)
+    print("전위 순회:", end=" ")
+    b_tree.preorder(b_tree.root)
+    print("끝")
+    print("중위 순회:", end=" ")
+    b_tree.inorder(b_tree.root)
+    print("끝")
+    print("후위 순회:", end=" ")
+    b_tree.postorder(b_tree.root)
+    print("끝")
