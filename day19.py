@@ -1,50 +1,46 @@
-# memo = list()  # 전역 변수로 한번 처리한 결과 값을 저장
+import tkinter as tk
+
+memos = [None for _ in range(100)]  # 전역 리스트ㅡ
+memos[0], memos[1] = 0, 1
 
 
-def fibo_memo(n):
-    """
-    Memoization(DP)를 사용한 피보나치 수열 처리 함수
-    :param n:
-    :return:
-    """
-    global count_memoization
-    count_memoization += 1
-    memo = [0, 1]
-    if n <= 1:
-        return memo[n]
-    else:
-        for i in range(2, n + 1):
-            memo.append(memo[i - 1] + memo[i - 2])
-        return memo[n]
-
-
-# def fibo_iter(n):
-#
-#     r = list()
-#     p1, p2 = 1, 1
-#     for _ in range(n):
-#         r.append(p1)
-#         p1, p2 = p2, p1 + p2
-#     return r[-1]
-
-
-def fibo_recu(n):
-    global count_recursion
-    count_recursion += 1
-    if n == 0:
-        return 0
-    elif n == 1:
+def fact_recu(n):
+    if n == 1:
         return 1
     else:
-        return fibo_recu(n - 1) + fibo_recu(n - 2)
+        return n * fact_recu(n - 1)
 
 
-count_recursion = 0
-count_memoization = 0
-print("피보나치 수 --> 0 1 ")
-for i in range(2, 30):
-    print(f"{i} : {fibo_memo(i)}")  # memoization
-for i in range(2, 30):
-    print(f"{i} : {fibo_recu(i)}")  # recursion
+def fibo_memo_recu(n):
+    if n <= 1:
+        return memos[n]
 
-print(f"재귀: {count_recursion}, 메모: {count_memoization}")
+    if memos[n] is not None:  # 전역 메모리 memos에 이전에 계산한 결과 값이 존재하면
+        return memos[n]
+
+    memos[n] = fibo_memo_recu(n - 2) + fibo_memo_recu(n - 1)  # 처음 방문하는 n이면
+    return memos[n]
+
+
+def fact_input():
+    lbl_result.config(text=f"팩토리얼 계산결과: {fact_recu(int(en_num_input.get()))}")
+
+
+def fibo_input():
+    lbl_result.config(text=f"피보나치 계산결과: {fibo_memo_recu(int(en_num_input.get()))}")
+
+
+win = tk.Tk()
+win.title("Calculator")
+win.geometry("300x150")
+
+en_num_input = tk.Entry()  # 텍스트 입력상자
+lbl_result = tk.Label(text="계산결과")
+btn_fact = tk.Button(text="팩토리얼", command=fact_input)
+btn_fibo = tk.Button(text="피보나치", command=fibo_input)
+
+en_num_input.pack()
+lbl_result.pack()
+btn_fact.pack(fill="x")
+btn_fibo.pack(fill="x")
+win.mainloop()
