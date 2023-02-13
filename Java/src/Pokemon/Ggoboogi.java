@@ -23,7 +23,7 @@ public non-sealed class Ggoboogi extends Pokemon{
 
     @Override
     public void attack(int idx) {
-        System.out.println("[Ggoboog!]"+ getOwner()+"'s Pokemon "+getName() + "excutes (water)" + getSkills()[idx - 1]);
+        System.out.println("[Ggoboog!]"+ getOwner()+"'s Pokemon "+getName() + "excutes (water)" + getSkills().get(idx - 1));
     }
 
     public void swim(){

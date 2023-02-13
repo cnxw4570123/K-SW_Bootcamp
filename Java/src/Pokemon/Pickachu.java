@@ -23,7 +23,7 @@ public non-sealed class  Pickachu extends Pokemon{
 
     @Override
     public void attack(int idx) {
-        System.out.println("[Pika~!]"+ this.getOwner()+"'s Pokemon "+getName() + " excutes (electric)" + getSkills()[idx - 1]);
+        System.out.println("[Pika~!]"+ this.getOwner()+"'s Pokemon "+getName() + " excutes (electric)" + getSkills().get(idx - 1));
     }
 
 }

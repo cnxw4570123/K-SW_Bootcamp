@@ -20,7 +20,7 @@ public class Poke_main {
                 System.out.print("Input Skill List(Separate with '/'): ");
                 String skill_list = sc.nextLine();
 
-                Pokemon p = switch (menu){ // Upcasting each instance
+                Pokemon p = switch (menu){ // Promotion each instance
                     case 1 -> {
                         yield new Pickachu(owner, skill_list);
                     }

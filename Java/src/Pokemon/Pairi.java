@@ -23,6 +23,6 @@ public non-sealed class Pairi extends Pokemon{
 
     @Override
     public void attack(int idx) {
-        System.out.println("[Pai!]"+ getOwner()+"'s Pokemon "+getName() + "excutes (fire)" + getSkills()[idx - 1]);
+        System.out.println("[Pai!]"+ getOwner()+"'s Pokemon "+getName() + "excutes (fire)" + getSkills().get(idx - 1));
     }
 }
