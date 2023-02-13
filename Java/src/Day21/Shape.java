@@ -58,15 +58,10 @@ public class Shape {
             new Shape("사각형", "빨간색", 12.6)
     );
 
-    static List<Shape> findShapesByType(List<Shape> shapes, String type){
+    static List<Shape> findShapes(List<Shape> shapes, String type, String color, Double area){
         ArrayList<Shape> result = new ArrayList<Shape>();
-        for(Shape shape : shapes) if(shape.getType().equals(type)) result.add(shape);
+        for(Shape shape : shapes) if(shape.getType().equals(type) && shape.getColor().equals(color) && shape.getArea() <= area) result.add(shape);
         return result;
     }
 
-    static List<Shape> findShapesByColorNArea(List<Shape> shapes, String color, Double area){
-        ArrayList<Shape> result = new ArrayList<Shape>();
-        for(Shape shape: shapes) if(shape.color.equals(color)&&shape.area <= area) result.add(shape);
-        return result;
-    }
 }
