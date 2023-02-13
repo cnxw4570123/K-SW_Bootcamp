@@ -1,6 +1,6 @@
 package Pokemon;
 
-public class Pairi extends Pokemon{
+public non-sealed class Pairi extends Pokemon{
     private String name;
 
     public Pairi(){

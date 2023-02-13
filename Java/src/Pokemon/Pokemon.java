@@ -1,7 +1,6 @@
 package Pokemon;
 
-
-public class Pokemon {
+public abstract sealed class Pokemon permits  Pickachu, Ggoboogi, Pairi{
     private String owner;
     private String skills[];
     private static int count = 0;
@@ -42,11 +41,10 @@ public class Pokemon {
     }
 
     public void info(){
+        System.out.println(this.owner + "'s pokemon can execute");
         for(int i = 0; i < skills.length; i++)
             System.out.println(i+1 + " : " + skills[i]);
     }
 
-    public void attack(int idx){
-        System.out.println(skills[idx] + " excuted");
-    }
+    public abstract void attack(int idx);
 }

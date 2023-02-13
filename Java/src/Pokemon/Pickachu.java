@@ -1,6 +1,6 @@
 package Pokemon;
 
-public class Pickachu extends Pokemon{
+public non-sealed class  Pickachu extends Pokemon{
     private String name;
 
     public Pickachu(){

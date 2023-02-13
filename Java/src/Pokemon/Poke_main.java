@@ -14,11 +14,11 @@ public class Poke_main {
             else{
                 System.out.print("1) Pickachu 2) Ggoboogi 3) Pairi : ");
                 menu = sc.nextByte();
-                sc.nextByte();
+                sc.nextLine();
                 System.out.print("Input Player Name: ");
                 String owner = sc.nextLine();
                 System.out.print("Input Skill List(Separate with '/'): ");
-                String skill_list = sc.next();
+                String skill_list = sc.nextLine();
 
                 Pokemon p = switch (menu){ // Upcasting each instance
                     case 1 -> {

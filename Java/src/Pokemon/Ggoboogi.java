@@ -1,6 +1,6 @@
 package Pokemon;
 
-public class Ggoboogi extends Pokemon{
+public non-sealed class Ggoboogi extends Pokemon{
     private String name;
 
     public Ggoboogi(){
@@ -27,6 +27,6 @@ public class Ggoboogi extends Pokemon{
     }
 
     public void swim(){
-        System.out.println(getName()+"가 수영을 합니다.");
+        System.out.println(getName()+"swims");
     }
 }
