@@ -1,26 +1,37 @@
 package Day21;
 
+import java.util.Comparator;
+
+class Soldier implements Comparable {
+    String name;
+    String grade;
+
+    public Soldier(String name, String grade) {
+        this.name = name;
+        this.grade = grade;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Soldier s = (Soldier) o;
+        return grade.equals(s.grade) ? 1 : 0;
+    }
+}
 public class Generic{
-    static class Prints{
-        //generic method
-        public static <T extends Number> void PrintArray(T[] arr){
-            for(T a : arr) System.out.println(a);
-        }
-        public static <T> T getFirst(T[] arr){
-            return arr[0];
-        }
+    public static <T extends Comparable> int countSoldier(T[] arr, T a){
+        int count = 0;
+        for(T ar : arr) if(ar.compareTo(a) == 1) count++;
+        return count;
     }
 
     public static void main(String[] args) {
-        Double d1[] = {3.14, 2.71, 9.9};
-        String s1[] = {"HI", "HELLO", "GREETING"};
-        Integer i1[] = {10, 9, 7};
-        Character c1[] = {'A', 'B', 'C'};
-        Prints.PrintArray(d1);
-        Prints.PrintArray(i1);
-        System.out.println(Prints.getFirst(c1));
-//        Prints.PrintArray(c1);
-//        Prints.PrintArray(s1);
-//        Prints.<Double>PrintArray(d1);
+        Soldier[] s = {
+                new Soldier("박민석", "일병"),
+                new Soldier("성윤모", "이병"),
+                new Soldier("차병호", "이병"),
+                new Soldier("김상훈", "상병"),
+                new Soldier("최일구", "병자"),
+        };
+        System.out.println("분대에 이병 인원은 " + countSoldier(s, new Soldier("누구", "이병")) + "명 입니다.");
     }
 }
