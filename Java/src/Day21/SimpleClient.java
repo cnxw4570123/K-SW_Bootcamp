@@ -7,6 +7,7 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.util.Scanner;
+import java.util.function.Supplier;
 
 public class SimpleClient {
     public static void main(String[] args) {
@@ -44,5 +45,6 @@ public class SimpleClient {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
     }
 }
