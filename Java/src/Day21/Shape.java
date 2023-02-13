@@ -3,6 +3,7 @@ package Day21;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class Shape {
     private String type;
@@ -58,9 +59,9 @@ public class Shape {
             new Shape("사각형", "빨간색", 12.6)
     );
 
-    static List<Shape> findShapes(List<Shape> shapes, String type, String color, Double area){
+    static List<Shape> findShapes(List<Shape> shapes, Predicate<Shape> p){
         ArrayList<Shape> result = new ArrayList<Shape>();
-        for(Shape shape : shapes) if(shape.getType().equals(type) && shape.getColor().equals(color) && shape.getArea() <= area) result.add(shape);
+        for(Shape shp : shapes) if(p.test(shp)) result.add(shp);
         return result;
     }
 
