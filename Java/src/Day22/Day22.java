@@ -6,7 +6,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.util.Date;
 
-public class MulticastServer {
+public class Day22 {
     public static void main(String args[]) {
         System.out.println("멀티 캐스트 타임 서버");
         DatagramSocket serverSocket = null;  // UDP
