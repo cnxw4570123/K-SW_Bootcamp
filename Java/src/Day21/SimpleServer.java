@@ -19,7 +19,7 @@ public class SimpleServer {
 //            PrintWriter out;
             try (
                 BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                PrintWriter pw = new PrintWriter(clientSocket.getOutputStream(), true)
+                PrintWriter pw = new PrintWriter(clientSocket.getOutputStream(), true);
             )  // expires when try block ends
             {
 //                BufferedReader br = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
@@ -34,8 +34,8 @@ public class SimpleServer {
                 throw new RuntimeException(e);
             }
 //            finally {
-//              br.close();
-//              pw.close();
+//              if(br != null) br.close();
+//              if(pw != null) pw.close();
 //            }
         } catch (IOException ex) {
             System.out.println("access Failed!");

@@ -1,3 +1,5 @@
+package Day01;
+
 public class day1_mission {
     public static void main(String[] args) {
         byte var1 = 127;

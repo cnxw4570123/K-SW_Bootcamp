@@ -1,3 +1,5 @@
+package Day03;
+
 import java.util.Scanner;
 
 public class Day03_mission {
