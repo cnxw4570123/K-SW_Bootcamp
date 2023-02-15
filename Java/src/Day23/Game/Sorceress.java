@@ -6,7 +6,10 @@ public class Sorceress extends Character{
         mp = 550;
     }
     @Override
-    void info() {
-
+    public void info() {
+        System.out.printf("""
+                체력:%d
+                지능:%d
+                """, hp, mp);
     }
 }
