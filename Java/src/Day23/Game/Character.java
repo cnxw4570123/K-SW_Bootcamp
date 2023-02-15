@@ -6,7 +6,12 @@ public abstract class Character {
     protected WeaponBehavior weapon; // Association(Aggregation)
 
 
-    abstract void info();
+    public void info() {
+        System.out.printf("""
+                체력:%d
+                지능:%d
+                """, hp, mp);
+    }
     public void setWeapon(WeaponBehavior weapon) {
         this.weapon = weapon;
     }

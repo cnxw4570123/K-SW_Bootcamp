@@ -5,12 +5,4 @@ public class Amazon extends Character{
         hp = 700;
         mp = 250;
     }
-
-    @Override
-    void info() {
-        System.out.printf("""
-                체력:%d
-                지능:%d
-                """, hp, mp);
-    }
 }

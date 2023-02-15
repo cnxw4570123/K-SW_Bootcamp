@@ -6,11 +6,4 @@ public class Barbarian extends Character{
         mp = 150;
     }
 
-    @Override
-    void info() {
-        System.out.printf("""
-                체력:%d
-                지능:%d
-                """, hp, mp);
-    }
 }
