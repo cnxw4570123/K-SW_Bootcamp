@@ -6,8 +6,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.StringTokenizer;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.function.BiFunction;
+import java.util.function.BinaryOperator;
+import java.util.function.Function;
 
 public class SimpleServer implements Runnable {
     private static Socket clientSocket;
@@ -21,10 +25,37 @@ public class SimpleServer implements Runnable {
              PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true)
         )
         {
-            String inputLine;
-            while ((inputLine = br.readLine()) != null) {
-                System.out.println("[" + Thread.currentThread() + "]"+"클라이언트가 보낸 메시지 : " + inputLine);
-                out.println(inputLine);
+            String line;
+            while ((line = br.readLine()) != null) {
+                StringTokenizer st;
+                String delim;
+                if(line.contains("+")) delim = "+";
+                else if (line.contains("-")) delim = "-";
+                else if (line.contains("*")) delim = "*";
+                else if (line.contains("/")) delim = "/";
+                else break;
+
+                BiFunction<StringTokenizer, String, String> calc = (stk, dlm) -> {
+                    int oprn1 = Integer.parseInt(stk.nextToken());
+                    int oprn2 = Integer.parseInt(stk.nextToken());
+                    String res = switch(dlm){
+                        case"+": yield oprn1 + oprn2 + "";
+                        case "-": yield oprn1 - oprn2 + "";
+                        case "*": yield oprn1 *oprn2+"";
+                        case "/": yield oprn1 /oprn2 + "";
+                        default: yield null;
+                    };
+                    return res;
+                };
+
+                st = new StringTokenizer(line, delim);
+                line = calc.apply(st, delim);
+
+
+                System.out.println("결과 : "+line);
+                System.out.println("[" + clientSocket.getRemoteSocketAddress().toString()+ " " + Thread.currentThread() + "]"+"클라이언트가 보낸 메시지 : " + line);
+
+                out.println(line);
             }
             System.out.println("[" + Thread.currentThread() + " 클라이언트 종료]");
         } catch (IOException ex) {
@@ -35,7 +66,7 @@ public class SimpleServer implements Runnable {
     public static void main(String[] args) {
         ExecutorService eService = Executors.newFixedThreadPool(2); // Thread 개수 제한
         System.out.println("에코 서버 시작됨");
-        try (ServerSocket serverSocket = new ServerSocket(6000)) {
+        try (ServerSocket serverSocket = new ServerSocket(12255)) {
             while (true) {
                 System.out.println("클라이언트 접속 대기 중.....");
                 clientSocket = serverSocket.accept();
